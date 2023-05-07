@@ -1,3 +1,5 @@
+"use client"
+
 function ReservationBox() {
     const today = new Date().toISOString().split("T")[0];
 
