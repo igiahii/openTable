@@ -9,4 +9,4 @@ export default function Head() {
   )
 }
 
-// DataBase password (supabase - OpenTable) : lGrMNoibVQiFkKMi
+
