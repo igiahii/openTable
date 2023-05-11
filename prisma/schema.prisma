@@ -10,11 +10,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum PRICE {
-  CHEAP
-  REGULAR
-  EXPENSIVE
-}
 
 model Restaurant {
   id          Int        @id @default(autoincrement())
@@ -25,7 +20,7 @@ model Restaurant {
   open_time   String
   close_time  String
   slug        String     @unique
-  prise       PRICE
+  price       PRICE
   items       MenuItem[]
   location_id Int
   location    Location   @relation(fields: [location_id], references: [id])
@@ -33,6 +28,12 @@ model Restaurant {
   cuisine     Cuisine    @relation(fields: [cuisine_id], references: [id])
   created_at  DateTime   @default(now())
   updated_at  DateTime   @updatedAt
+}
+
+enum PRICE {
+  CHEAP
+  REGULAR
+  EXPENSIVE
 }
 
 model MenuItem {
