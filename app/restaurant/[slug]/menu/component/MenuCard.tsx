@@ -1,11 +1,13 @@
-function MenuCard() {
+import { MenuItem } from "@prisma/client";
+
+function MenuCard({item} : {item : MenuItem}) {
   return (
     <div className=" shadow border rounded hover:border-[#da3743] p-3 w-[49%] my-3">
-      <h3 className="font-bold text-lg">Surf and Turf</h3>
+      <h3 className="font-bold text-lg">{item.name}</h3>
       <p className="font-light mt-1 text-sm">
-        A well done steak with lobster and rice
+        {item.description}
       </p>
-      <p className="mt-7">$80.00</p>
+      <p className="mt-7">{item.price}</p>
     </div>
   );
 }
