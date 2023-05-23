@@ -10,6 +10,8 @@ interface PropType {
 
 function RestaurantCard({restaurant}: PropType) {
   const router = useRouter();
+
+  
   return (
     <div className="w-60 h-[310px] m-2 transition-transform hover:-translate-y-1 duration-300 shadow-lg hover:shadow-xl rounded overflow-hidden border ">
       <img
@@ -22,7 +24,7 @@ function RestaurantCard({restaurant}: PropType) {
       </div>
       <div className="flex  flex-start align-baseline ">
         <div className=" ml-2  ">*****</div>
-        <p className=" ml-2 ">77 reveiws</p>
+        <p className=" ml-2 ">{restaurant.reviews.length} review{(restaurant.reviews.length >0) ?"s" : ""}</p>
       </div>
       <div className="text-sm ml-2 mb-1 flex font-normal capitalize">
         <p className="mr-3">{restaurant.cuisine.name}</p>

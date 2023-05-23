@@ -1,7 +1,7 @@
 
 import SearchBar from "./SearchBar(c)";
 
-function Header() {
+function Header({locations , cuisines} : any) {
 
   return (
     <div className="h-64 bg-gradient-to-r from-[#0f1f47] to-[#5f6984] p-2">

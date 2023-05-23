@@ -10,7 +10,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model Restaurant {
   id          Int        @id @default(autoincrement())
   name        String     @db.VarChar(290)
@@ -22,6 +21,7 @@ model Restaurant {
   slug        String     @unique
   price       PRICE
   items       MenuItem[]
+  reviews     Review[]
   location_id Int
   location    Location   @relation(fields: [location_id], references: [id])
   cuisine_id  Int
@@ -61,4 +61,32 @@ model Cuisine {
   created_at  DateTime     @default(now())
   updated_at  DateTime     @updatedAt
   restaurants Restaurant[]
+}
+
+model Review {
+  id            Int        @id @default(autoincrement())
+  first_name    String     @db.VarChar(250)
+  last_name     String     @db.VarChar(250)
+  text          String
+  rating        Float
+  restaurant_id Int
+  restaurant    Restaurant @relation(fields: [restaurant_id], references: [id])
+  user_id       Int
+  user          User       @relation(fields: [user_id] , references: [id])
+  created_at    DateTime   @default(now())
+  updated_at    DateTime   @updatedAt
+}
+
+model User {
+  id         Int      @id @default(autoincrement())
+  first_name String   @db.VarChar(250)
+  last_name  String   @db.VarChar(250)
+  city       String
+  email      String
+  phone      String
+  password   String
+  reviews    Review[]
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
 }
