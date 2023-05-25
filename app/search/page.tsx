@@ -1,7 +1,7 @@
 import Header from "./component/Header";
 import SearchSideBar from "./component/SearchSideBar";
 import RestaurantCard from "./component/RestaurantCard";
-import { Cuisine, Location, PRICE, PrismaClient } from "@prisma/client";
+import { Cuisine, Location, PRICE, PrismaClient, Review } from "@prisma/client";
 // import styles from "./../styles/page.module.scss";
 
 export interface RestaurantCardSearch {
@@ -12,6 +12,7 @@ export interface RestaurantCardSearch {
   price: PRICE;
   main_image: string;
   slug: string;
+  reviews : Review[]
 }
 
 interface iSearchParams {
@@ -30,6 +31,7 @@ const FetchData = async (searchParams: iSearchParams): Promise<RestaurantCardSea
     location: true,
     main_image: true,
     slug: true,
+    reviews : true
   };
 
   let where: any = {};
