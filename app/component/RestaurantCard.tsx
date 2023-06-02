@@ -19,13 +19,13 @@ function RestaurantCard({restaurant}: PropType) {
         src={restaurant.main_image}
         alt="Hard Rock Cafe - Amsterdam"
         className="h-36 w-full overflow-hidden transition transform duration-200 hover:scale-110"
-      />
+      /> 
       <div className="flex  p-2 pb-0 ">
         <h3 className="text-left text-xl font-bold">{restaurant.name}</h3>
       </div>
-      <div className="flex  flex-start ">
+      <div className="flex ml-2 flex-start ">
        
-        <Stars reviews ={restaurant.reviews} />
+        <Stars  reviews ={restaurant.reviews} />
         <p className=" ml-2 ">{restaurant.reviews.length} review{(restaurant.reviews.length > 1) ?"s" : ""}</p>
       </div>
       <div className="text-sm ml-2 mb-1 flex font-normal capitalize">

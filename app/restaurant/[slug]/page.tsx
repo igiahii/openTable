@@ -7,6 +7,7 @@ import Photos from "./component/Photos";
 import Reviews from "./component/Reviews";
 import ReservationBox from "./component/ReservationBox(c)";
 import { PrismaClient, Review } from "@prisma/client";
+import { notFound } from "next/navigation";
 
 // Sass
 // import styles from "./../styles/page.module.scss";
@@ -19,7 +20,7 @@ export interface CardType {
   images: string[];
   slug: string;
   main_image: string;
-  reviews : Review[]
+  reviews: Review[];
 }
 
 async function restaurantDetailPage({ params }: { params: { slug: string } }) {
@@ -35,11 +36,11 @@ async function restaurantDetailPage({ params }: { params: { slug: string } }) {
         images: true,
         slug: true,
         main_image: true,
-        reviews: true
+        reviews: true,
       },
     });
     if (!restaurant) {
-      throw new Error();
+      notFound()
     }
     return restaurant;
   };
@@ -58,10 +59,10 @@ async function restaurantDetailPage({ params }: { params: { slug: string } }) {
         <div className="flex-col w-[70%] bg-white rounded  p-3 shadow">
           <NavDetails params={params} />
           <Title name={restaurant.name} />
-          <Rating reviews={restaurant.reviews}/>
+          <Rating reviews={restaurant.reviews} />
           <Description description={restaurant.description} />
           <Photos restaurant={restaurant} />
-          <Reviews reviews={restaurant.reviews}/>
+          <Reviews reviews={restaurant.reviews} />
         </div>
         {/* Reservation */}
         <ReservationBox />
