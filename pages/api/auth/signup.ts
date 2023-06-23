@@ -3,6 +3,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import validator from "validator";
 import bcrypt from "bcrypt";
 import * as jose from "jose"
+import { setCookie } from "cookies-next";
 
 const prisma = new PrismaClient();
 export default async function Handler(
@@ -47,7 +48,7 @@ export default async function Handler(
       {
         valid: validator.isStrongPassword(password),
         errorMessage:
-          "Password must more than 8 characters and have at least 1 capital letter! ",
+          " Password must be at least 8 characters long and contain a mix of uppercase and lowercase letters, numbers, and symbols. ",
       },
       {
         valid: validator.equals(confirmpass, password),
@@ -96,8 +97,14 @@ export default async function Handler(
           .sign(secret)
 
 
+    setCookie("jwt" , token , {res , req , maxAge : 6 * 60 * 24} )  //remain 24 hours
+
     return res.status(200).json({
-      token,  
+      firstname : newUser.first_name,
+      lastname : newUser.last_name,
+      email : newUser.email,
+      phone : newUser.phone,
+      city : newUser.city,  
     });
   }
   return res.status(404).json({

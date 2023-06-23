@@ -3,6 +3,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import validator from "validator";
 import bcrypt from "bcrypt";
 import * as jose from "jose";
+import {setCookie} from 'cookies-next'
 
 const prisma = new PrismaClient();
 
@@ -53,8 +54,15 @@ export default async function Signin(
       .setExpirationTime("24h")
       .sign(secret);
 
+
+    setCookie("jwt" , token , {res , req , maxAge : 6 * 60 * 24} )  //remain 24 hours
+
     return res.status(200).json({
-      token,
+      firstname : UserWithEmail.first_name,
+      lastname : UserWithEmail.last_name,
+      email : UserWithEmail.email,
+      phone : UserWithEmail.phone,
+      city : UserWithEmail.city,
     });
   }
   return res.status(404).json({ errorMessage: " Unknown EndPoint" });

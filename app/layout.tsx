@@ -2,6 +2,7 @@ import "./globals.css";
 import { Dosis } from "@next/font/google";
 // components
 import NavBar from "./component/navBar";
+import AuthContext from "./context/AuthContext";
 // fonts
 const dosis = Dosis({ subsets: ["latin"] });
 
@@ -20,10 +21,12 @@ export default function RootLayout({
       <body>
         <main className={dosis.className}>
           <main className="min-h-screen w-screen bg-gray-300">
-            <main className="m-auto  bg-white max-w-screen-xl ">
-              <NavBar />
-              {children}
-            </main>
+            <AuthContext>
+              <main className="m-auto  bg-white max-w-screen-xl ">
+                <NavBar />
+                {children}
+              </main>
+            </AuthContext>
           </main>
         </main>
       </body>

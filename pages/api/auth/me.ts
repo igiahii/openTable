@@ -26,5 +26,11 @@ export default async function Me(req: NextApiRequest, res: NextApiResponse) {
     },
   });
 
-  return res.json({ user });
+  return res.json({
+    firstname : user?.first_name,
+    lastname : user?.last_name,
+    email : user?.email,
+    phone : user?.phone,
+    city : user?.city,  
+  });
 }

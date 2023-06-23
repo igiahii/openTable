@@ -2,6 +2,7 @@ import fullstar from "./../../public/icons/full-star.png"
 import halfstar from "./../../public/icons/half-star.png"
 import emptystar from "./../../public/icons/empty-star.png"
 import { Review } from "@prisma/client"
+import { v4 as uuidv4 } from 'uuid';
 import Image from "next/image"
 
 
@@ -27,7 +28,7 @@ function Stars({reviews ,rating} : {reviews : Review[] , rating? : number }) {
             }
             else Stars.push(emptystar)
         }
-        return Stars.map(star =><Image src={star} alt="" className="w-4 h-4 mr-1" />)
+        return Stars.map(star =><Image key={uuidv4()} src={star} alt="" className="w-4 h-4 mr-1" />)
     }
 
 
