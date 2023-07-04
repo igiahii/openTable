@@ -21,6 +21,8 @@ export interface CardType {
   slug: string;
   main_image: string;
   reviews: Review[];
+  open_time: string;
+  close_time: string;
 }
 
 async function restaurantDetailPage({ params }: { params: { slug: string } }) {
@@ -37,15 +39,17 @@ async function restaurantDetailPage({ params }: { params: { slug: string } }) {
         slug: true,
         main_image: true,
         reviews: true,
+        open_time: true,
+        close_time: true,
       },
     });
     if (!restaurant) {
-      notFound()
+      notFound();
     }
     return restaurant;
   };
   const restaurant = await FetchRestaurantBySlug(params.slug);
-  console.log(restaurant);
+  
 
   return (
     <>
@@ -65,7 +69,11 @@ async function restaurantDetailPage({ params }: { params: { slug: string } }) {
           <Reviews reviews={restaurant.reviews} />
         </div>
         {/* Reservation */}
-        <ReservationBox />
+        <ReservationBox
+          openTime={restaurant.open_time}
+          closeTime={restaurant.close_time}
+          slug={restaurant.slug}
+        />
         {/* Reservation */}
       </div>
     </>

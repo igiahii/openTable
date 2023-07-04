@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Dosis } from "@next/font/google";
+import "react-datepicker/dist/react-datepicker.css";
 // components
 import NavBar from "./component/navBar";
 import AuthContext from "./context/AuthContext";
