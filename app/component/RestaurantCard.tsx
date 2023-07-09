@@ -14,7 +14,7 @@ function RestaurantCard({restaurant}: PropType) {
 
   
   return (
-    <div className="w-60 h-[310px] m-2 transition-transform hover:-translate-y-1 duration-300 shadow-lg hover:shadow-xl rounded overflow-hidden border ">
+    <div className="sm:w-60 w-72 h-[310px] m-2 transition-transform hover:-translate-y-1 duration-300 shadow-lg hover:shadow-xl rounded overflow-hidden border ">
       <img
         src={restaurant.main_image}
         alt="Hard Rock Cafe - Amsterdam"

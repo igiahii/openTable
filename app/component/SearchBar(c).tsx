@@ -16,9 +16,9 @@ function SearchBar() {
     return "cuisine"
   }
   return (
-    <div className="flex py-3 text-lg text-left m-auto justify-center">
+    <div className="flex py-3 sm:text-lg text-left m-auto justify-center">
       <input
-        className="rounded  w-[450px] p-2  mr-3 focus:border-l-stone-300"
+        className="rounded  sm:w-[450px] p-2  mr-3 w-52 focus:border-l-stone-300"
         type="search "
         placeholder="Find a Location or Cuisine"
         value={query}
@@ -26,7 +26,7 @@ function SearchBar() {
       />
       <button
         disabled={query === ""}
-        className="rounded disabled:opacity-70 disabled:cursor-not-allowed bg-red-600 font-bold py-2 px-9 text-white"
+        className="rounded disabled:opacity-70 disabled:cursor-not-allowed bg-red-600 font-bold py-2 px-3 sm:px-9 text-white"
         onClick={() => {
           router.push(`/search?${compare()}=${query}`);
           setQuery("");

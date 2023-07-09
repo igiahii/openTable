@@ -140,7 +140,7 @@ function ReservationBox({
                 {convertToDisplayTime(t.time as Time)}
                 </p>
                 </Link>
-                : <p className="p-2 bg-gray-300 rounded w-24 mb-3 mr-3"> {convertToDisplayTime(t.time as Time)}</p>
+                : <p className="p-2 bg-gray-300 rounded text-center w-24 text-sm font-bold mb-3 mr-3"> {convertToDisplayTime(t.time as Time)}</p>
             })}
           </div>
         </div>

@@ -23,7 +23,7 @@ export default function RootLayout({
         <main className={dosis.className}>
           <main className="min-h-screen w-screen bg-gray-300">
             <AuthContext>
-              <main className="m-auto  bg-white max-w-screen-xl ">
+              <main className="m-auto  bg-white min-h-screen max-w-screen-xl ">
                 <NavBar />
                 {children}
               </main>

@@ -43,7 +43,7 @@ export default async function Home() {
     <>
       <Header />
       {/* Cards */}
-      <div className=" flex flex-wrap m-auto mt-5 py-3 pl-36">
+      <div className=" flex flex-wrap m-auto mt-5 py-3 justify-center sm:pl-36 sm:justify-start">
         {restaurants.map((restaurantCard) => (
           <RestaurantCard restaurant={restaurantCard} />
         ))}
