@@ -45,7 +45,7 @@ function Form({
   const { error, loading, createReservation } = UseReservation();
 
   const handleCreateReservation = async () => {
-    console.log(didBook , "before");
+ 
     const booking = await createReservation({
       slug,
       date: day,
@@ -59,12 +59,12 @@ function Form({
       bookerRequest: inputs.bookerRequest,
       setDidBook,
     });
-    console.log(didBook , "after");
+   
     
   };
 
   return (
-    <div className="mt-10 flex flex-wrap justify-between w-[660px]">
+    <div className="sm:mt-10 mt-5 flex flex-wrap justify-center sm:justify-between sm:w-[660px]">
       {didBook ? (
         <div className="flex">
           <Alert severity="success">
@@ -76,7 +76,7 @@ function Form({
         <>
           <input
             type="text"
-            className="border rounded outline-none  focus:border-red-600  p-3 w-80 mb-4"
+            className="border rounded outline-none  focus:border-red-600 w-80 p-3 mb-4"
             placeholder="First name"
             name="bookerFirstname"
             value={inputs.bookerFirstname}
@@ -84,7 +84,7 @@ function Form({
           />
           <input
             type="text"
-            className="border rounded outline-none  focus:border-red-600 p-3 w-80 mb-4"
+            className="border rounded outline-none  focus:border-red-600 w-80 p-3 mb-4"
             placeholder="Last name"
             name="bookerLastname"
             value={inputs.bookerLastname}

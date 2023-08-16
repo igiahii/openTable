@@ -74,7 +74,7 @@ export default function LoginModal() {
   return (
     <div>
       <button
-        className={` rounded border capitalize px-4  p-1 bg-white border-[#247f9e]  text-[#247f9e]`}
+        className={` rounded border capitalize sm:px-4 px-2  sm:p-2 p-1 bg-white border-[#247f9e]  text-[#247f9e]`}
         onClick={handleOpenup}
       >
         sign up

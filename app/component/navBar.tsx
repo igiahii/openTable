@@ -11,7 +11,7 @@ function NavBar() {
   const { data, loading } = useContext(AuthenticationContext);
   const { logOut } = useAuth();
   return (
-    <nav className="bg-white flex justify-between p-2">
+    <nav className="bg-white flex items-center justify-between p-2 ">
       <Link
         className="capitalize font-sans ml-2 font-bold text-gray-700 text-2xl"
         href="/"
@@ -27,17 +27,17 @@ function NavBar() {
           <div className="flex">
             {data?.firstname ? (
               <span className="flex items-center ">
-                <p className="text-lg font-bold capitalize mr-6  relative">
+                <span className="text-lg font-bold capitalize mr-6  relative">
                   {" "}
                   Hi, {data.firstname} {data.lastname}
                   <div className="absolute -top-2 -right-3 z-50 flex h-3 w-3 items-center justify-center">
                     <div className="h-full w-full animate-ping rounded-full bg-green-800 opacity-60"></div>
                     <div className="z-60 absolute top-0 right-0 h-full w-full rounded-full bg-green-900 opacity-80"></div>
                   </div>
-                </p>
+                </span>
                 <button
                   onClick={logOut}
-                  className=" rounded border font-semibold capitalize px-4  p-1  text-white bg-red-600 hover:opacity-80 mr-2"
+                  className=" rounded border font-semibold capitalize sm:px-4 px-2 sm:p-2 p-1  text-white bg-red-600 hover:opacity-80 mr-2"
                 >
                   Logout
                 </button>

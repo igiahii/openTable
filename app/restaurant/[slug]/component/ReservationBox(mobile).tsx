@@ -7,7 +7,7 @@ import { CircularProgress } from "@mui/material";
 import Link from "next/link";
 import { Time, convertToDisplayTime } from "../../../../utils/convertToDisplayTime";
 
-function ReservationBox({
+function ReservationBoxMob({
   openTime,
   closeTime,
   slug,
@@ -57,8 +57,8 @@ function ReservationBox({
   };
 
   return (
-    <div className="  w-[27%] sm:flex hidden relative">
-      <div className="fixed shadow-xl top-15 bg-white w-[16%] p-3 rounded">
+    <div className=" relative sm:hidden">
+      <div className=" shadow-xl top-15 bg-white p-3 rounded">
         <div className="text-center border-b pb-3 font-bold">
           <h4>Make a Reservation</h4>
         </div>
@@ -150,4 +150,4 @@ function ReservationBox({
   );
 }
 
-export default ReservationBox;
+export default ReservationBoxMob;

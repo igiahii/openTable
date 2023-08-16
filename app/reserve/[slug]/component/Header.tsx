@@ -6,16 +6,16 @@ function Header({name , image , date , partySize} : {name : string ; image : str
   const [day , time] = date.split("T")
 
   return (
-    <div>
+    <div className="flex flex-wrap sm:block justify-center  ">
       <h3 className="font-bold text-xl">You're almost done!</h3>
-      <div className="mt-5 flex">
+      <div className="mt-5 flex flex-wrap  justify-center sm:justify-start">
         <img
           src={image}
           alt={name}
-          className="w-auto h-32 rounded"
+          className="w-fit sm:h-32 rounded"
         />
-        <div className="ml-4">
-          <h1 className="text-4xl font-extrabold capitalize">
+        <div className="sm:ml-4 text-start w-full m-2 sm:w-auto sm:m-0">
+          <h1 className="sm:text-4xl text-2xl font-extrabold capitalize ">
             {name}
           </h1>
           <div className="flex font-semibold mt-3">

@@ -25,7 +25,7 @@ const UseAuth = () => {
         error: null,
         loading: false,
       });
-      console.log(response);
+      
       handleClose()
     } catch (error: any) {
       setAuthstate({
@@ -33,9 +33,10 @@ const UseAuth = () => {
         error: error.response.data.errorMessage,
         loading: false,
       });
+    handleOpen()
     
     }
-   
+  //  handleOpen()
   };
   const signup = async (
     {

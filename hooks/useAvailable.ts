@@ -23,13 +23,12 @@ export default function UseAvailable (){
         })
         setLoading(false)
         setData(response.data)
-        console.log(response.data);
         
         
         } catch (error : any) {
             setLoading(false)
             setError(error.response.data.errorMessage)
-            console.log(error);
+        
             
         }
 

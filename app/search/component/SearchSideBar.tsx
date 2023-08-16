@@ -10,7 +10,7 @@ function SearchSideBar({
   searchParams: { query?: string; cuisine?: string; price?: PRICE };
 }) {
   return (
-    <div className="w-1/5 p-3 ">
+    <div className="w-1/5 p-3 hidden sm:block ">
       <div className="border-b flex flex-col pb-4">
         <h1 className="mb-2 font-semibold">Region</h1>
         {locations.map((loc) => (

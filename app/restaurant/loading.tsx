@@ -3,7 +3,7 @@ import React from "react";
 function loading() {
   return (
     <>
-      <div className="h-96 bg-slate-300  w-full animate-pulse flex overflow-hidden"></div>
+      <div className="h-[340px] bg-slate-300  w-full animate-pulse flex overflow-hidden"></div>
       <div className="flex w-[70%] m-auto h-screen justify-between items-start -mt-11">
         <div className="flex-col min-h-screen  w-[70%] bg-white rounded z-30  p-3 shadow">
           <nav className=" border-b w-full text-base bg-white  pb-3 items-end">

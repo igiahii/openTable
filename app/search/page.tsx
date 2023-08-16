@@ -126,13 +126,13 @@ async function searchPage({
   return (
     <>
       <Header />
-      <div className="flex py-4 m-auto w-2/3 justify-between items-start">
+      <div className="flex py-4 m-auto sm:w-2/3 justify-between items-start">
         <SearchSideBar
           locations={Locations}
           cuisines={Cuisine}
           searchParams={searchParams}
         />
-        <div className="w-5/6 p-2">
+        <div className="sm:w-5/6 p-1">
           {restaurants.length > 0 ? (
             restaurants.map((restaurant) => (
               <RestaurantCard key={restaurant.id} restaurant={restaurant} />

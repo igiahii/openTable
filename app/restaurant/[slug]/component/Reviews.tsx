@@ -5,7 +5,7 @@ function Reviews( {reviews} : {reviews : Review[]}) {
   return (
     <>
       <div>
-        <h1 className="text-3xl font-bold mt-10 mb-7 border-b pb-5">
+        <h1 className="sm:text-3xl text-2xl font-bold mt-10 mb-7 border-b pb-5">
           What {reviews.length} people are saying
         </h1>
       </div>

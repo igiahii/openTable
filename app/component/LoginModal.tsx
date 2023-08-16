@@ -54,7 +54,7 @@ export default function LoginModal() {
   return (
     <div>
       <button
-        className={` rounded border capitalize px-4  p-1  text-white bg-[#247f9e] hover:opacity-80 mr-2`}
+        className={` rounded border capitalize sm:px-4 px-2  sm:p-2 p-1  text-white bg-[#247f9e] hover:opacity-80 mr-2`}
         onClick={handleOpen}
       >
         sign in

@@ -1,8 +1,9 @@
 // import components
-import { Cuisine, Location, PRICE, PrismaClient, Review } from "@prisma/client";
+import { Booking, Cuisine, Location, PRICE, PrismaClient, Review } from "@prisma/client";
 import Header from "./component/Header";
 import RestaurantCard from "./component/RestaurantCard";
-
+// import dynamic from "next/dynamic";
+// const RestaurantCard = dynamic(() => import('./component/RestaurantCard'))
 // import styles from "./../styles/page.module.scss";
 
 const Prisma = new PrismaClient();
@@ -16,6 +17,7 @@ export interface RestaurantType {
   price: PRICE;
   slug: string;
   reviews: Review[];
+  bookings : Booking[]
 }
 
 const FetchRestaurant = async (): Promise<RestaurantType[]> => {
@@ -29,23 +31,26 @@ const FetchRestaurant = async (): Promise<RestaurantType[]> => {
       reviews: true,
       price: true,
       slug: true,
+      bookings : true
     },
   });
   return restaurants;
 };
 
+
+
+
 export default async function Home() {
   const restaurants = await FetchRestaurant();
-
   
-
+  
   return (
     <>
       <Header />
       {/* Cards */}
       <div className=" flex flex-wrap m-auto mt-5 py-3 justify-center sm:pl-36 sm:justify-start">
         {restaurants.map((restaurantCard) => (
-          <RestaurantCard restaurant={restaurantCard} />
+          <RestaurantCard restaurant={restaurantCard}  />
         ))}
       </div>
       {/* Cards */}

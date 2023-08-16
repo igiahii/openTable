@@ -31,7 +31,7 @@ async function reservePage({
   const restaurant = await fetchRestaurantBySlug(params.slug);
   return (
     <div className="border-t flex max-h-screen ">
-      <div className="py-9 w-3/5 m-auto">
+      <div className="py-9 w-[90%] sm:w-3/5 m-auto">
         <Header name={restaurant.name} image={restaurant.main_image} date ={searchParams.date} partySize ={searchParams.partySize}/>
         <Form slug={params.slug} date ={searchParams.date} partySize ={searchParams.partySize} />
       </div>

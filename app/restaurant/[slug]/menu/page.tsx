@@ -26,13 +26,10 @@ async function menuPage({ params }: { params: { slug: string } }) {
 
   return (
     <>
-      <div className="h-96  flex overflow-hidden">
-        <img
-          className="h-full w-full bg-center items-center bg-cover flex justify-center"
-          src={restaurant.main_image}
-        />
+      <div className={`sm:h-[340px] bg-center bg-fixed bg-cover bg-no-repeat`}>
+        <img  className="h-full w-full" src={restaurant.main_image}/>
       </div>
-      <div className="flex w-[70%] m-auto justify-between items-start -mt-11">
+      <div className="flex sm:w-[70%] w-[90%] m-auto justify-between items-start -mt-11">
  
           <div className="flex-col w-full bg-white rounded  p-3 shadow">
             <NavDetails params={params} />
